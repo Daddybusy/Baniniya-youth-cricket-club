@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BYCC Portal Gateway - Authentication</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+</head>
+<body class="dark-ui">
+  <div id="toast-container"></div>
+  <main class="main-container" style="margin-top: 80px;">
+    <div class="glass-card" style="max-width:450px;">
+      <h2 class="orbitron-text gold-text" style="text-align:center; margin-bottom:30px;"><i class="fas fa-lock"></i> GATEWAY LOGIN</h2>
+      <form id="login-form">
+        <div class="input-group">
+          <input type="email" id="login-email" required placeholder=" ">
+          <label for="login-email">Account Email</label>
+        </div>
+        <div class="input-group">
+          <input type="password" id="login-password" required placeholder=" ">
+          <label for="login-password">Security Password</label>
+        </div>
+        <button type="submit" class="btn btn-next" style="width:100%; margin-bottom:15px;">Authenticate Identity</button>
+        <div style="display:flex; justify-content:space-between; font-size:0.85rem;">
+          <a href="#" id="forgot-pass" style="color:var(--gold-accent); text-decoration:none;">Forgot Security Matrix?</a>
+          <a href="signup.html" style="color:white; text-decoration:none;">Create Credentials</a>
+        </div>
+      </form>
+    </div>
+  </main>
+  <script type="module" src="login.js"></script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BYCC Identity Terminal Control System</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+</head>
+<body class="dark-ui">
+  <div id="toast-container"></div>
+  <header>
+    <div class="logo-area"><i class="fas fa-id-badge gold-text"></i><h1 class="orbitron-text">BYCC <span class="gold-text">DASHBOARD</span></h1></div>
+    <nav><button id="logout-btn" class="nav-btn"><i class="fas fa-sign-out-alt"></i> Exit Terminal</button></nav>
+  </header>
+
+  <main class="main-container" style="display:flex; flex-direction:column; align-items:center; gap:30px;">
+    <div class="card-canvas-wrapper" style="padding:10px; background:linear-gradient(45deg, #000, #111); border-radius:12px; border:1px solid var(--gold-accent);">
+      <div id="membership-card-render" style="width:360px; height:220px; background:linear-gradient(135deg, #022611 0%, #0b0f12 100%); padding:20px; position:relative; box-sizing:border-box; border-radius:8px; overflow:hidden;">
+        <div style="position:absolute; top:-20px; right:-20px; width:100px; height:100px; background:rgba(214,175,55,0.05); border-radius:50%;"></div>
+        <h3 class="orbitron-text gold-text" style="font-size:0.95rem; margin-bottom:2px; letter-spacing:1px;">BANINIYA YOUTH CRICKET CLUB</h3>
+        <p style="font-size:0.55rem; color:var(--neon-green); font-weight:700; text-transform:uppercase; letter-spacing:2px; margin-bottom:15px;">OFFICIAL IDENTITY BLOCK</p>
+        
+        <div style="display:flex; gap:15px; align-items:center;">
+          <div id="card-qrcode" style="background:white; padding:4px; border-radius:4px; width:80px; height:80px; display:flex; align-items:center; justify-content:center;"></div>
+          <div style="font-size:0.75rem;">
+            <p style="font-weight:700; font-size:0.95rem; margin-bottom:4px;" id="card-name">------- -------</p>
+            <p style="margin-bottom:2px;"><span style="color:var(--gold-accent)">ID:</span> <span id="card-id" class="orbitron-text">BYCCXXXX</span></p>
+            <p style="margin-bottom:2px;"><span style="color:var(--gold-accent)">ROLE:</span> <span id="card-role">--------</span></p>
+            <p style="margin-bottom:2px;"><span style="color:var(--gold-accent)">VILLAGE:</span> <span id="card-village">--------</span></p>
+          </div>
+        </div>
+        <div style="position:absolute; bottom:12px; right:20px; font-size:0.65rem; color:var(--muted-text);">
+          Status: <span id="card-status-pill" style="color:yellow; font-weight:700;">Pending Verification</span>
+        </div>
+      </div>
+    </div>
+
+    <div style="display:flex; gap:15px;">
+      <button id="download-card-btn" class="btn btn-success"><i class="fas fa-download"></i> Extract Identity Card PDF</button>
+      <button id="edit-toggle-btn" class="btn btn-prev"><i class="fas fa-edit"></i> Toggle Data Modification</button>
+    </div>
+
+    <div class="glass-card" style="width:100%; max-width:600px;">
+      <h3 class="orbitron-text gold-text" style="margin-bottom:25px; font-size:1.1rem;"><i class="fas fa-sliders-h"></i> Secure Core Record Matrix</h3>
+      <form id="profile-edit-form" disabled>
+        <div class="input-group"><input type="text" id="m-name" required placeholder=" " disabled><label>Full Name</label></div>
+        <div class="input-group"><input type="number" id="m-age" required placeholder=" " disabled><label>Age</label></div>
+        <div class="input-group"><input type="tel" id="m-contact" required placeholder=" " disabled><label>Contact Field Vector</label></div>
+        <div class="input-group"><input type="text" id="m-location" required placeholder=" " disabled><label>Realtime Dynamic Location</label></div>
+        <div class="input-group"><input type="text" id="m-address" required placeholder=" " disabled><label>Permanent Domicile Registry</label></div>
+        <button type="submit" id="save-profile-btn" class="btn btn-success hidden" style="width:100%;">Commit Parameter Mutation Update</button>
+      </form>
+    </div>
+  </main>
+
+  <script type="module" src="member.js"></script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BYCC Identity Generation Terminal</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <body class="dark-ui">
+    <div id="toast-container"></div>
+    <main class="main-container" style="margin-top: 60px;">
+      <div class="glass-card" style="max-width:450px;">
+        <h2 class="orbitron-text gold-text" style="text-align:center; margin-bottom:30px;"><i class="fas fa-user-plus"></i> SIGN UP</h2>
+        <form id="signup-form">
+          <div class="input-group">
+            <input type="email" id="signup-email" required placeholder=" ">
+            <label for="signup-email">Desired Matrix Email</label>
+          </div>
+          <div class="input-group">
+            <input type="password" id="signup-password" required placeholder=" ">
+            <label for="signup-password">High Entropy Password</label>
+          </div>
+          <button type="submit" class="btn btn-success" style="width:100%; margin-bottom:15px;">Instantiate Identity Record</button>
+          <p style="font-size:0.85rem; text-align:center;"><a href="login.html" style="color:var(--gold-accent); text-decoration:none;">Already configured? Return to Gateway Portal</a></p>
+        </form>
+      </div>
+    </main>
+    <script type="module" src="signup.js"></script>
+  </body>
+</html>

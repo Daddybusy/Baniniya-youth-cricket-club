@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BYCC Command Line Nexus & Admin Matrix</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="admin.css">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body class="dark-ui config-admin">
+  <div id="toast-container"></div>
+  <header>
+    <div class="logo-area"><i class="fas fa-server gold-text"></i><h1 class="orbitron-text">BYCC <span class="gold-text">ADMIN NEXUS</span></h1></div>
+    <nav><button id="logout-btn" class="nav-btn"><i class="fas fa-power-off"></i> Terminate Admin Session</button></nav>
+  </header>
+
+  <main class="admin-grid-layout" style="padding: 30px 2%;">
+    <div class="metrics-row">
+      <div class="metric-block card-metric"><h5>Total Submissions</h5><p id="stat-total">0</p></div>
+      <div class="metric-block card-metric"><h5>Active Players</h5><p id="stat-players" style="color:var(--neon-green)">0</p></div>
+      <div class="metric-block card-metric"><h5>Seniors</h5><p id="stat-seniors">0</p></div>
+      <div class="metric-block card-metric"><h5>Ex-Players</h5><p id="stat-ex">0</p></div>
+      <div class="metric-block card-metric"><h5>Supporters</h5><p id="stat-supporters">0</p></div>
+      <div class="metric-block card-metric"><h5>Pending Approval</h5><p id="stat-pending" style="color:yellow;">0</p></div>
+    </div>
+
+    <div class="glass-card administration-controls" style="max-width:100%; margin-bottom:25px; padding:20px;">
+      <div class="filters-wrap-layout" style="display:flex; flex-wrap:wrap; gap:15px; align-items:center;">
+        <input type="text" id="search-name" placeholder="Execute identity string lookup..." style="padding:10px; background:rgba(0,0,0,0.3); border:1px solid var(--glass-border); color:white; border-radius:6px; min-width:220px;">
+        <select id="filter-village"><option value="">All Villages</option><option value="Baniniya">Baniniya</option><option value="Arnama">Arnama</option><option value="Kolypur">Kolypur</option><option value="Sanchriya">Sanchriya</option><option value="Bokhara">Bokhara</option></select>
+        <select id="filter-category"><option value="">All Categories</option><option value="Player">Player</option><option value="Senior">Senior</option><option value="Ex Player">Ex Player</option><option value="Supporter">Supporter</option></select>
+        <select id="filter-role"><option value="">All Roles</option><option value="Batsman">Batsman</option><option value="Bowler">Bowler</option><option value="All Rounder">All Rounder</option><option value="Wicket Keeper">Wicket Keeper</option></select>
+        
+        <div style="margin-left:auto; display:flex; gap:10px;">
+          <button id="exp-csv" class="btn btn-prev" style="padding:8px 15px; font-size:0.85rem;"><i class="fas fa-file-csv"></i> CSV</button>
+          <button id="exp-excel" class="btn btn-prev" style="padding:8px 15px; font-size:0.85rem;"><i class="fas fa-file-excel"></i> Excel</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="glass-card data-table-canvas" style="max-width:100%; overflow-x:auto; padding:0;">
+      <table class="nexus-table-core" style="width:100%; border-collapse:collapse; font-size:0.9rem; text-align:left;">
+        <thead>
+          <tr style="background:rgba(0, 77, 32, 0.3); border-bottom:2px solid var(--gold-accent);">
+            <th style="padding:15px;">ID Sequence</th>
+            <th>Full Legal Name</th>
+            <th>Category</th>
+            <th>Role Matrix</th>
+            <th>Village Node</th>
+            <th>Current Status</th>
+            <th style="text-align:right; padding-right:20px;">Execution Matrix Controls</th>
+          </tr>
+        </thead>
+        <tbody id="admin-table-runtime-body">
+          </tbody>
+      </table>
+    </div>
+  </main>
+  <script type="module" src="admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BYCC - Player Registration System</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+</head>
+<body class="dark-ui">
+  
+  <div id="loader-wrapper">
+    <div class="spinner"></div>
+    <h2 class="orbitron-text gold-text">BYCC INITIALIZING...</h2>
+  </div>
+
+  <div id="toast-container"></div>
+
+  <header>
+    <div class="logo-area">
+      <i class="fas fa-cricket-bat-ball gold-text"></i>
+      <h1 class="orbitron-text">BYCC <span class="gold-text">REGISTRATION</span></h1>
+    </div>
+    <nav>
+      <button id="nav-dashboard-btn" class="nav-btn hidden"><i class="fas fa-user-shield"></i> Member Space</button>
+      <button id="logout-btn" class="nav-btn hidden"><i class="fas fa-sign-out-alt"></i> Logout</button>
+    </nav>
+  </header>
+
+  <main class="main-container">
+    <div class="glass-card container-wrapper">
+      <div class="progress-container">
+        <div class="progress-bar" id="reg-progress"></div>
+        <div class="steps-indicators">
+          <span class="step-dot active">1</span>
+          <span class="step-dot">2</span>
+          <span class="step-dot">3</span>
+          <span class="step-dot">4</span>
+          <span class="step-dot">5</span>
+          <span class="step-dot">6</span>
+          <span class="step-dot"><i class="fas fa-check"></i></span>
+        </div>
+      </div>
+
+      <form id="registration-multi-step">
+        <div class="form-step active-step" data-step="1">
+          <h2 class="step-title"><i class="fas fa-id-card gold-text"></i> Personal Information</h2>
+          <div class="input-group">
+            <input type="text" id="full-name" required placeholder=" ">
+            <label for="full-name">Full Name</label>
+          </div>
+          <div class="input-group">
+            <input type="number" id="age" required min="10" max="60" placeholder=" ">
+            <label for="age">Age</label>
+          </div>
+          <div class="input-group">
+            <input type="tel" id="contact-number" required placeholder=" ">
+            <label for="contact-number">Contact Number</label>
+          </div>
+          <div class="input-group">
+            <input type="email" id="email-address" required placeholder=" ">
+            <label for="email-address">Email Address</label>
+          </div>
+          <div class="btn-group single-right">
+            <button type="button" class="btn btn-next">Next <i class="fas fa-arrow-right"></i></button>
+          </div>
+        </div>
+
+        <div class="form-step" data-step="2">
+          <h2 class="step-title"><i class="fas fa-users-cog gold-text"></i> Select Registration Category</h2>
+          <div class="custom-select-grid">
+            <label class="selectable-card">
+              <input type="radio" name="category" value="Player" checked>
+              <div class="card-content"><i class="fas fa-running"></i><span>Active Player</span></div>
+            </label>
+            <label class="selectable-card">
+              <input type="radio" name="category" value="Senior">
+              <div class="card-content"><i class="fas fa-user-tie"></i><span>Senior Member</span></div>
+            </label>
+            <label class="selectable-card">
+              <input type="radio" name="category" value="Ex Player">
+              <div class="card-content"><i class="fas fa-history"></i><span>Ex Player</span></div>
+            </label>
+            <label class="selectable-card">
+              <input type="radio" name="category" value="Supporter">
+              <div class="card-content"><i class="fas fa-hands-helping"></i><span>Supporter / Fan</span></div>
+            </label>
+          </div>
+          <div class="btn-group">
+            <button type="button" class="btn btn-prev"><i class="fas fa-arrow-left"></i> Back</button>
+            <button type="button" class="btn btn-next">Next <i class="fas fa-arrow-right"></i></button>
+          </div>
+        </div>
+
+        <div class="form-step" data-step="3">
+          <h2 class="step-title"><i class="fas fa-bullseye gold-text"></i> Primary Playing Role</h2>
+          <div class="custom-select-grid">
+            <label class="selectable-card">
+              <input type="radio" name="playing-role" value="Batsman" checked>
+              <div class="card-content"><i class="fas fa-gavel"></i><span>Batsman</span></div>
+            </label>
+            <label class="selectable-card">
+              <input type="radio" name="playing-role" value="Bowler">
+              <div class="card-content"><i class="fas fa-bowling-ball"></i><span>Bowler</span></div>
+            </label>
+            <label class="selectable-card">
+              <input type="radio" name="playing-role" value="All Rounder">
+              <div class="card-content"><i class="fas fa-sync-alt"></i><span>All Rounder</span></div>
+            </label>
+            <label class="selectable-card">
+              <input type="radio" name="playing-role" value="Wicket Keeper">
+              <div class="card-content"><i class="fas fa-hands"></i><span>Wicket Keeper</span></div>
+            </label>
+          </div>
+          <div class="btn-group">
+            <button type="button" class="btn btn-prev"><i class="fas fa-arrow-left"></i> Back</button>
+            <button type="button" class="btn btn-next">Next <i class="fas fa-arrow-right"></i></button>
+          </div>
+        </div>
+
+        <div class="form-step" data-step="4">
+          <h2 class="step-title"><i class="fas fa-toggle-on gold-text"></i> Currently Actively Playing?</h2>
+          <div class="toggle-switch-wrapper">
+            <label class="toggle-card">
+              <input type="radio" name="currently-playing" value="Yes" checked>
+              <div class="state-layer"><span>YES</span></div>
+            </label>
+            <label class="toggle-card">
+              <input type="radio" name="currently-playing" value="No">
+              <div class="state-layer"><span>NO</span></div>
+            </label>
+          </div>
+          <div class="btn-group">
+            <button type="button" class="btn btn-prev"><i class="fas fa-arrow-left"></i> Back</button>
+            <button type="button" class="btn btn-next">Next <i class="fas fa-arrow-right"></i></button>
+          </div>
+        </div>
+
+        <div class="form-step" data-step="5">
+          <h2 class="step-title"><i class="fas fa-map-marker-alt gold-text"></i> Geographic Status</h2>
+          <div class="input-group">
+            <input type="text" id="current-location" required placeholder=" ">
+            <label for="current-location">Current Real-Time Location</label>
+          </div>
+          <div class="btn-group">
+            <button type="button" class="btn btn-prev"><i class="fas fa-arrow-left"></i> Back</button>
+            <button type="button" class="btn btn-next">Next <i class="fas fa-arrow-right"></i></button>
+          </div>
+        </div>
+
+        <div class="form-step" data-step="6">
+          <h2 class="step-title"><i class="fas fa-map-signs gold-text"></i> Regional Logistics</h2>
+          <div class="input-group select-wrapper">
+            <select id="municipality" required>
+              <option value="Kalyanpur Municipality">Kalyanpur Municipality</option>
+            </select>
+            <label class="select-floating-label">Municipality</label>
+          </div>
+          <div class="input-group select-wrapper">
+            <select id="ward-number" required>
+              <option value="1">Ward 1</option>
+            </select>
+            <label class="select-floating-label">Ward Number</label>
+          </div>
+          <div class="input-group select-wrapper">
+            <select id="village" required>
+              <option value="Baniniya">Baniniya</option>
+              <option value="Arnama">Arnama</option>
+              <option value="Kolypur">Kolypur</option>
+              <option value="Sanchriya">Sanchriya</option>
+              <option value="Bokhara">Bokhara</option>
+            </select>
+            <label class="select-floating-label">Village</label>
+          </div>
+          <div class="input-group">
+            <input type="text" id="permanent-address" required placeholder=" ">
+            <label for="permanent-address">Full Permanent Address</label>
+          </div>
+          <div class="btn-group">
+            <button type="button" class="btn btn-prev"><i class="fas fa-arrow-left"></i> Back</button>
+            <button type="button" class="btn btn-next">Next <i class="fas fa-arrow-right"></i></button>
+          </div>
+        </div>
+
+        <div class="form-step" data-step="7">
+          <h2 class="step-title"><i class="fas fa-clipboard-check gold-text"></i> Technical Review</h2>
+          <div id="review-board" class="review-box"></div>
+          <div class="btn-group">
+            <button type="button" class="btn btn-prev"><i class="fas fa-arrow-left"></i> Back</button>
+            <button type="submit" id="submit-registration" class="btn btn-success">Finalize Submission <i class="fas fa-cloud-upload-alt"></i></button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-content">
+      <p><i class="fas fa-envelope gold-text"></i> contact: <span class="white-text">shyamsmiritiyuwacricketclub@gmail.com</span></p>
+      <p><i class="fas fa-phone-alt gold-text"></i> hotline: <span class="white-text">+9779811707366</span></p>
+      <p class="copyright">&copy; 2026 BYCC. Premium Architecture Layer.</p>
+    </div>
+  </footer>
+
+  <script type="module" src="script.js"></script>
+</body>
+</html>
